@@ -1,5 +1,5 @@
 # SNPify
-SNPify is a tool that automates batch processing for multiple bioinformatics tools upon large datasets. The user just needs to input a xlsx, xls, or csv file in a defined format and run the service. The results will be stored on you disk under the ~/SNP Results directory.
+SNPify is a tool that automates batch processing for multiple bioinformatics tools upon large datasets. The user just needs to input a xlsx, xls, or csv file in a defined format and run the service. The results will be stored on you disk under the ~/SNP Results/ directory.
 
 # Usage instructions
 ## Availability
