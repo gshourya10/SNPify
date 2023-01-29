@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <form method="POST" action="/results/" enctype="multipart/form-data"
+          class="d-flex flex-column justify-content-center align-items-center">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Mutation Data Sheet</label>
+          <input class="form-control" name="mutation_data" accept=".csv,.xlsx,.xls" type="file" id="formFile" required>
+            <div class="invalid-tooltip">
+              Please select a valid file.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3 position-relative">
+            <label for="tool-select" class="form-label">Analysis tool</label>
+            <select class="form-select" name="tool" id="tool-select" required>
+              <option value="" selected disabled>Select a tool</option>
+              <option value="hope">HOPE</option>
+              <option value="missense">Missense 3D</option>
+            </select>
+            <div class="invalid-tooltip">
+              Please select a valid state.
+            </div>
+          </div>
+        <div class="">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div class="accordion mt-5" id="accordianExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Sample data for HOPE
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body d-flex align-items-center justify-content-center">
+        <img src="{% static 'imgs/hope_sample.png' %}" class="img-fluid sample-img" alt="...">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Sample data for Missense-3D
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="accordion-body d-flex align-items-center justify-content-center">
+        <img src="{% static 'imgs/hope_sample.png' %}" class="img-fluid sample-img" alt="...">
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

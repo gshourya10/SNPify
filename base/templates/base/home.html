@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<div class="container">
+    <form method="POST" action="/results/" enctype="multipart/form-data"
+          class="d-flex flex-column justify-content-center align-items-center">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Mutation Data Sheet</label>
+          <input class="form-control" name="mutation_data" accept=".csv,.xlsx,.xls" type="file" id="formFile" required>
+            <div class="invalid-tooltip">
+              Please select a valid file.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3 position-relative">
+            <label for="tool-select" class="form-label">State</label>
+            <select class="form-select" name="tool" id="tool-select" required>
+              <option value="" selected disabled>Select a tool</option>
+              <option value="hope">HOPE</option>
+              <option value="missense">Missense 3D</option>
+              <option value="polyphen">PolyPhen-2</option>
+              <option value="snps_and_go">SNPs & Go</option>
+              <option value="mutation_taster">MutationTaster</option>
+              <option value="predict_snp">PredictSNP</option>
+            </select>
+            <div class="invalid-tooltip">
+              Please select a valid state.
+            </div>
+          </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input class="form-control" name="email" type="email" id="email">
+            <div class="invalid-tooltip">
+              Please enter a valid email.
+            </div>
+        </div>
+        <div class="">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if messages %}
+<div class="alert alert-dark mt-5" role="alert">
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="container vw-100 vh-100 d-flex flex-row justify-content-between align-items-center">
+    <a href="/structural">
+        <div class="demo-wrap-structural click-box d-flex justify-content-between align-items-center">
+          <div class="demo-content text-box">
+            <h1>STRUCTURAL ANALYSIS</h1>
+          </div>
+        </div>
+    </a>
+    <a href="/functional">
+        <div class="demo-wrap-functional click-box d-flex justify-content-between align-items-center">
+          <div class="demo-content text-box">
+            <h1>FUNCTIONAL ANALYSIS</h1>
+          </div>
+        </div>
+    </a>
+</div>
+
+{% endblock %}
