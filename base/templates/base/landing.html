@@ -29,4 +29,10 @@
     </a>
 </div>
 
+{% if show_worker_button %}
+    <form method="GET" action="/predict_snp_fetch/">
+        <button id="worker-btn">Fetch PredictSNP jobs</button>
+    </form>
+{% endif %}
+
 {% endblock %}
