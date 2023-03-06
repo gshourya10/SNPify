@@ -78,7 +78,7 @@ def save_result(job_id, root_folder):
         job.save()
         return
 
-    folder_name = root_folder
+    folder_name = root_folder + '_' + job.job_id
     HOME_DIR = os.path.expanduser('~')
     file_dir = os.path.join(HOME_DIR, f'SNP Results\\PredictSNP Analyses\\{folder_name}')
     try:

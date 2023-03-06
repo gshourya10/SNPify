@@ -6,7 +6,7 @@ from .api import broker
 from .api.utils.data_params import valid_data_fields
 from .utils.helpers import parse_file, sanitize_data
 from .utils.worker import update_predict_snp_tasks
-from models.predict_snp_model import PredictSNPJobModel
+from .models.predict_snp_model import PredictSNPJobModel
 import threading
 
 

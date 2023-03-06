@@ -30,9 +30,9 @@
 </div>
 
 {% if show_worker_button %}
-<button class="btn pmd-btn-fab pmd-ripple-effect btn-primary pmd-btn-raised" type="button">
-    Click to fetch pending PredictSNP results
-</button>
+    <form method="GET" action="/predict_snp_fetch/">
+        <button id="worker-btn">Fetch PredictSNP jobs</button>
+    </form>
 {% endif %}
 
 {% endblock %}
